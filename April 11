@@ -1,0 +1,23 @@
+function setup() {
+  createCanvas(600, 600);
+  sequence = [4];//global variable
+  sequence.push(Math.round(Math.random() * 4));
+  noLoop();
+  console.log(sequence);
+  
+}
+
+beginShape();
+  vertex(0, 0)
+  vertex(0, 600)
+  vertex(300, 300)
+endShape(CLOSE)
+
+function draw() {
+  background("skyBlue");
+}
+
+dog = "dog";
+if (dog == "dog") {
+  
+}

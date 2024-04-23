@@ -1,0 +1,27 @@
+function setup() {
+  createCanvas(600, 600);  
+}
+sequence = [];//global variable
+sequence.push(Math.round(Math.random() * 4));
+console.log(sequence);
+
+function draw() {
+  background("white");
+  //rect 1
+  fill(255,255,0)
+  rect(0, 0, 300, 300);
+  //rect 2
+  fill(0, 255, 255)
+  rect(300, 0, 300, 300)
+  fill(255, 0, 255)
+  rect(0, 300, 300, 300)
+  fill(0, 0, 255)
+  rect(300, 300, 300, 300)
+  
+}
+
+
+dog = "dog";
+if (dog == "dog") {
+  
+}

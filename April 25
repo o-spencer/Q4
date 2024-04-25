@@ -1,0 +1,47 @@
+function setup() {
+  createCanvas(600, 600);
+  
+}
+compSequence = [];//global variable
+compSequence.push(Math.round(Math.random() * 4));
+console.log(compSequence);
+
+playerSequence = []
+
+function draw() {
+  background("white");
+  //rect 1
+  fill(255,255,0)
+  if (mouseX < 300 && mouseX > 0 && mouseY > 0 && mouseY < 300) {
+    fill(240, 240, 0)
+  }
+  rect(0, 0, 300, 300);
+  //rect 2
+  fill(0, 255, 255)
+  if (mouseX < 600 && mouseX > 300 && mouseY > 0 && mouseY < 300) {
+  fill(0, 240, 240)
+  }
+  rect(300, 0, 300, 300)
+  //rect 3
+  fill(255, 0, 255)
+  if (mouseX < 300 && mouseX > 0 && mouseY > 300 && mouseY < 600) {
+    fill(240, 0, 240)
+  }
+  rect(0, 300, 300, 300)
+  //rect 4
+  fill(0, 0, 255)
+  if (mouseX < 600 && mouseX > 300 && mouseY > 300 && mouseY < 600) {
+  fill(0, 0, 240)
+  }
+  rect(300, 300, 300, 300)
+  text("1", 30, 30)
+  text("2", 330, 30)
+  text("3", 30, 330)
+  text("4", 330, 330)
+  if (mouseIsPressed && mouseX > 0 && mouseX < 300) {
+    playerSequence.push(1)
+    console.log(playerSequence)
+  }
+}
+
+

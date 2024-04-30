@@ -4,8 +4,10 @@ function setup() {
 }
 
 
+
 compSequence = [];//global variable
-compSequence.push(Math.round(Math.random() * 4));
+//compSequence.push(Math.ceil(Math.random() * 4));
+
 console.log(compSequence);
 
 playerSequence = []
@@ -44,10 +46,9 @@ function draw() {
   text("3", 30, 330)
   text("4", 330, 330)
   
-  
-
 
 }
+
 function mousePressed() {
   if (mouseX > 0 && mouseX < 300 && mouseY < 300 && mouseY > 0) {
     playerSequence.push(1)
@@ -66,10 +67,13 @@ function mousePressed() {
     console.log(playerSequence)
   }
 }
-if (compSequence.length == playerSequence.length)
+if (compSequence.length == playerSequence.length) {
+  while (compSequence.length == playerSequence.length) {
+    compSequence.push(Math.ceil(Math.random() * 4));
+    console.log(compSequence);
+  }
   for (let i = 0; i < compSequence.length; i++) {
-    console.log(compSequence)
-    compSequence.push(Math.round(Math.random() * 4))
-  
+    
+  }
 }
 

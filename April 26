@@ -11,35 +11,31 @@ console.log("initial value is " + compSequence)
 
 playerSequence = []
 
+y = "yellow"
+b = "blue"
+r = "red"
+g= "green"
 
 
 
 function draw() {
   background("white");
   //rect 1
-  fill("yellow")
-  if (mouseX < 300 && mouseX > 0 && mouseY > 0 && mouseY < 300) {
-    fill(240,240,0)
-  }
+  fill(y)
   rect(0, 0, 300, 300);
+  
   //rect 2
-  fill("blue")
-  if (mouseX < 600 && mouseX > 300 && mouseY > 0 && mouseY < 300) {
-  fill(0, 0, 240)
-  }
+  fill(b)
   rect(300, 0, 300, 300)
+  
   //rect 3
-  fill("red")
-  if (mouseX < 300 && mouseX > 0 && mouseY > 300 && mouseY < 600) {
-    fill(240, 0, 0)
-  }
+  fill(r)
   rect(0, 300, 300, 300)
+  
   //rect 4
-  fill("green")
-  if (mouseX < 600 && mouseX > 300 && mouseY > 300 && mouseY < 600) {
-  fill(0, 113, 0)
-  }
+  fill(g)
   rect(300, 300, 300, 300)
+  
   text("1", 30, 30)
   text("2", 330, 30)
   text("3", 30, 330)
@@ -81,11 +77,15 @@ function mousePressed() {
       compSequence.push(Math.ceil(Math.random() * 4));
       console.log("comp below")
       console.log(compSequence);
+      
   }
+  for (i = 0; i < compSequence; i++) {
+    
+  }
+    
   playerSequence = []
 
   }
 }
 
-
-
+//sleep(milli).then()

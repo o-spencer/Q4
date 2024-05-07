@@ -35,7 +35,7 @@ function draw() {
   //rect 4
   fill(g)
   rect(300, 300, 300, 300)
-  
+  fill("black")
   text("1", 30, 30)
   text("2", 330, 30)
   text("3", 30, 330)
@@ -80,7 +80,20 @@ function mousePressed() {
       for (let i = 0; i < compSequence.length; i++) {
         if (compSequence[i] == 1) {
           y = "white"
-          setTimeout(y = "yellow", 2000)
+          setTimeout(function(){y = "yellow"}, 2000)
+        }
+        if (compSequence[i] == 2) {
+          b = "white"
+          setTimeout(function(){b = "blue"}, 2000)
+        }
+        if (compSequence[i] == 3) {
+          r = "white"
+          setTimeout(function(){r = "red"}, 2000)
+        }
+        if (compSequence[i] == 4) {
+          g = "white"
+          setTimeout(function(){g = "green"}, 2000)
+        
         }
       }
       

@@ -80,29 +80,54 @@ function mousePressed() {
       for (let i = 0; i < compSequence.length; i++) {
         if (compSequence[i] == 1) {
           y = "white"
-          setTimeout(function(){y = "yellow"}, 2000)
+          setTimeout(function(){y = "yellow"}, 1500)
         }
         if (compSequence[i] == 2) {
           b = "white"
-          setTimeout(function(){b = "blue"}, 2000)
+          setTimeout(function(){b = "blue"}, 1500)
         }
         if (compSequence[i] == 3) {
           r = "white"
-          setTimeout(function(){r = "red"}, 2000)
+          setTimeout(function(){r = "red"}, 1500)
         }
         if (compSequence[i] == 4) {
           g = "white"
-          setTimeout(function(){g = "green"}, 2000)
+          setTimeout(function(){g = "green"}, 1500)
         
         }
       }
       
   }
+    
   
     
   playerSequence = []
 
   }
 }
+let counter = 0
+function display_sequence(seq) {
+  if (compSequence.length == 0) {
+    return 
+  }
+  if (compSequence[counter] == 1) {
+    y = "white"
+    setTimeout(function(){y = "yellow"}, 1500)
+  }
+  if (compSequence[counter] == 2) {
+    b = "white"
+    setTimeout(function(){b = "blue"}, 1500)
+  }
+  if (compSequence[counter] == 3) {
+    r = "white"
+    setTimeout(function(){r = "red"}, 1500)
+  }
+  if (compSequence[counter] == 4) {
+    g = "white"
+    setTimeout(function(){g = "green"}, 1500)
+  counter++
+  setTimeout(display_sequence(compSequence[counter:compsequence.length]))
+}
+
 
 //sleep(milli).then()

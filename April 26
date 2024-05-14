@@ -118,6 +118,7 @@ function display_sequence(seq) {
   if (counter == compSequence.length) {  //compSequence.length == 0) {
     return 
   }
+  
   if (compSequence[counter] == 1) {
     y = "white"
     setTimeout(function(){y = "yellow"}, 1500)

@@ -2,7 +2,7 @@ function setup() {
   createCanvas(600, 600);
   
 }
-
+fOrB = input("Choose to repeat the sequence forwards or backwards (input f or b): ")
 
 
 compSequence = [];//global variable

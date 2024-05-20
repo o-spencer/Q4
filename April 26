@@ -1,8 +1,25 @@
+  let y;
+  let b;
+  let r;
+  let g;
+  let input;
 function setup() {
   createCanvas(600, 600);
   
+  input = createInput("f or b")
+  
+  button = createButton("submit");
+  //button.mouseClicked(newText);
+ 
 }
-fOrB = input("Choose to repeat the sequence forwards or backwards (input f or b): ")
+/*
+function newText() {
+  if (input.value == "b") {
+    
+  } 
+}
+*/
+//forback = input.value()
 
 
 compSequence = [];//global variable
@@ -15,8 +32,6 @@ y = "yellow"
 b = "blue"
 r = "red"
 g= "green"
-
-
 
 function draw() {
   background("white");
@@ -42,35 +57,26 @@ function draw() {
   text("4", 330, 330)
 }
 
-
-
 function mousePressed() {
-
   if (mouseX > 0 && mouseX < 300 && mouseY < 300 && mouseY > 0) {
     playerSequence.push(1)
-
-
   }
   if (mouseX > 300 && mouseX < 600 && mouseY < 300 && mouseY > 0) {
     playerSequence.push(2)
-
-
   }
   if(mouseX > 0 && mouseX < 300 && mouseY < 600 && mouseY > 300) {
     playerSequence.push(3)
-
-
   }
   if (mouseX > 300 && mouseX < 600 && mouseY < 600 && mouseY > 300) {
     playerSequence.push(4)
-
-
   }
   for (i = 0; i < compSequence.length; i++) {
+    
     if (compSequence[i] != playerSequence[i] && playerSequence.length == compSequence.length) {
       console.log("incorrect sequence")
-
     }
+    
+      
   }
   if (compSequence.length == playerSequence.length) {
     while (compSequence.length == playerSequence.length) {
@@ -108,7 +114,6 @@ function mousePressed() {
           display_sequence(compSequence)
         }
       }
-      
   }
   playerSequence = []
   }
@@ -134,7 +139,6 @@ function display_sequence(seq) {
   if (compSequence[counter] == 4) {
     g = "white"
     setTimeout(function(){g = "green"}, 1500)
-  
   }
   counter++
   setTimeout(display_sequence(compSequence[counter, compSequence.length]), 1500)

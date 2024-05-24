@@ -1,8 +1,4 @@
-  let y;
-  let b;
-  let r;
-  let g;
-  let input;
+  let y, b, r, g, input
 function setup() {
   createCanvas(600, 600);
   
@@ -20,7 +16,6 @@ function newText() {
 }
 */
 //forback = input.value()
-
 
 compSequence = [];//global variable
 compSequence.push(Math.ceil(Math.random() * 4));
@@ -71,11 +66,14 @@ function mousePressed() {
     playerSequence.push(4)
   }
   for (i = 0; i < compSequence.length; i++) {
-    
-    if (compSequence[i] != playerSequence[i] && playerSequence.length == compSequence.length) {
-      console.log("incorrect sequence")
-    }
-    
+    if(input == "b")
+      if (compSequence[i] != playerSequence[playerSequence.length - 1 - i] && playerSequence.length == compSequence.length) {
+        console.log("incorrect sequence")
+      } else {
+        if (compSequence[i] != playerSequence[i] && playerSequence.length == compSequence.length) {
+        console.log("incorrect sequence")
+      }
+      
       
   }
   if (compSequence.length == playerSequence.length) {
@@ -118,6 +116,7 @@ function mousePressed() {
   playerSequence = []
   }
 }
+}
 let counter = 0
 function display_sequence(seq) {
   if (counter == compSequence.length) {  //compSequence.length == 0) {
@@ -142,4 +141,4 @@ function display_sequence(seq) {
   }
   counter++
   setTimeout(display_sequence(compSequence[counter, compSequence.length]), 1500)
-}
+  }

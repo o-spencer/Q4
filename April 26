@@ -1,12 +1,11 @@
-  let y, b, r, g, input
+let y, b, r, g, input;
 function setup() {
   createCanvas(600, 600);
-  
-  input = createInput("f or b")
-  
-  button = createButton("submit");
+
+  input = prompt("Repeat forwards(f) or backwards(b):");
+
+  //button = createButton("submit");
   //button.mouseClicked(newText);
- 
 }
 /*
 function newText() {
@@ -17,128 +16,144 @@ function newText() {
 */
 //forback = input.value()
 
-compSequence = [];//global variable
+compSequence = []; //global variable
 compSequence.push(Math.ceil(Math.random() * 4));
-console.log("initial value is " + compSequence)
+console.log("initial value is " + compSequence);
 
-playerSequence = []
+playerSequence = [];
 
-y = "yellow"
-b = "blue"
-r = "red"
-g= "green"
+y = "yellow";
+b = "blue";
+r = "red";
+g = "green";
 
 function draw() {
   background("white");
   //rect 1
-  fill(y)
+  fill(y);
   rect(0, 0, 300, 300);
-  
+
   //rect 2
-  fill(b)
-  rect(300, 0, 300, 300)
-  
+  fill(b);
+  rect(300, 0, 300, 300);
+
   //rect 3
-  fill(r)
-  rect(0, 300, 300, 300)
-  
+  fill(r);
+  rect(0, 300, 300, 300);
+
   //rect 4
-  fill(g)
-  rect(300, 300, 300, 300)
-  fill("black")
-  text("1", 30, 30)
-  text("2", 330, 30)
-  text("3", 30, 330)
-  text("4", 330, 330)
+  fill(g);
+  rect(300, 300, 300, 300);
+  fill("black");
+  text("1", 30, 30);
+  text("2", 330, 30);
+  text("3", 30, 330);
+  text("4", 330, 330);
 }
 
 function mousePressed() {
   if (mouseX > 0 && mouseX < 300 && mouseY < 300 && mouseY > 0) {
-    playerSequence.push(1)
+    playerSequence.push(1);
   }
   if (mouseX > 300 && mouseX < 600 && mouseY < 300 && mouseY > 0) {
-    playerSequence.push(2)
+    playerSequence.push(2);
   }
-  if(mouseX > 0 && mouseX < 300 && mouseY < 600 && mouseY > 300) {
-    playerSequence.push(3)
+  if (mouseX > 0 && mouseX < 300 && mouseY < 600 && mouseY > 300) {
+    playerSequence.push(3);
   }
   if (mouseX > 300 && mouseX < 600 && mouseY < 600 && mouseY > 300) {
-    playerSequence.push(4)
+    playerSequence.push(4);
   }
   for (i = 0; i < compSequence.length; i++) {
-    if(input == "b")
-      if (compSequence[i] != playerSequence[playerSequence.length - 1 - i] && playerSequence.length == compSequence.length) {
-        console.log("incorrect sequence")
-      } else {
-        if (compSequence[i] != playerSequence[i] && playerSequence.length == compSequence.length) {
-        console.log("incorrect sequence")
-      }
-      
-      
-  }
-  if (compSequence.length == playerSequence.length) {
-    while (compSequence.length == playerSequence.length) {
-      compSequence.push(Math.ceil(Math.random() * 4));
-      console.log("comp below")
-      console.log(compSequence);
-      for (let i = 0; i < compSequence.length; i++) {
-        if (compSequence[i] == 1) {
-          /*
+    if (input == "b") {
+      if (
+        compSequence[i] != playerSequence[playerSequence.length - 1 - i] &&
+        playerSequence.length == compSequence.length
+      ) {
+        console.log("incorrect sequence");
+      } 
+      } else if (input == "f") {
+        if (
+          compSequence[i] != playerSequence[i] &&
+          playerSequence.length == compSequence.length
+        ) {
+          console.log("incorrect sequence");
+        }
+    }
+    if (compSequence.length == playerSequence.length) {
+      while (compSequence.length == playerSequence.length) {
+        compSequence.push(Math.ceil(Math.random() * 4));
+        console.log("comp below in forward order");
+        console.log(compSequence);
+        for (let i = 0; i < compSequence.length; i++) {
+          if (compSequence[i] == 1) {
+            /*
           y = "white"
           setTimeout(function(){y = "yellow"}, 1500)
           */
-          display_sequence(compSequence)
-        }
-        if (compSequence[i] == 2) {
-          /*
+            display_sequence(compSequence);
+          }
+          if (compSequence[i] == 2) {
+            /*
           b = "white"
           setTimeout(function(){b = "blue"}, 1500)
           */
-          display_sequence(compSequence)
-
-        }
-        if (compSequence[i] == 3) {
-          /*
+            display_sequence(compSequence);
+          }
+          if (compSequence[i] == 3) {
+            /*
           r = "white"
           setTimeout(function(){r = "red"}, 1500)
           */
-          display_sequence(compSequence)
-        }
-        if (compSequence[i] == 4) {
-          /*
+            display_sequence(compSequence);
+          }
+          if (compSequence[i] == 4) {
+            /*
           g = "white"
           setTimeout(function(){g = "green"}, 1500)
           */
-          display_sequence(compSequence)
+            display_sequence(compSequence);
+          }
         }
       }
-  }
-  playerSequence = []
+      playerSequence = [];
+    }
   }
 }
-}
-let counter = 0
+let counter = 0;
 function display_sequence(seq) {
-  if (counter == compSequence.length) {  //compSequence.length == 0) {
-    return 
+  if (counter == compSequence.length) {
+    //compSequence.length == 0) {
+    return;
   }
-  
+
   if (compSequence[counter] == 1) {
-    y = "white"
-    setTimeout(function(){y = "yellow"}, 1500)
+    y = "white";
+    setTimeout(function () {
+      y = "yellow";
+    }, 1500);
   }
   if (compSequence[counter] == 2) {
-    b = "white"
-    setTimeout(function(){b = "blue"}, 1500)
+    b = "white";
+    setTimeout(function () {
+      b = "blue";
+    }, 1500);
   }
   if (compSequence[counter] == 3) {
-    r = "white"
-    setTimeout(function(){r = "red"}, 1500)
+    r = "white";
+    setTimeout(function () {
+      r = "red";
+    }, 1500);
   }
   if (compSequence[counter] == 4) {
-    g = "white"
-    setTimeout(function(){g = "green"}, 1500)
+    g = "white";
+    setTimeout(function () {
+      g = "green";
+    }, 1500);
   }
-  counter++
-  setTimeout(display_sequence(compSequence[counter, compSequence.length]), 1500)
-  }
+  counter++;
+  setTimeout(
+    display_sequence(compSequence[(counter, compSequence.length)]),
+    1500
+  );
+}

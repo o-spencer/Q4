@@ -1,4 +1,4 @@
-let y, b, r, g, input;
+let y, b, r, g, input, mySound
 function setup() {
   createCanvas(600, 600);
 
@@ -19,7 +19,10 @@ function newText() {
 compSequence = []; //global variable
 compSequence.push(Math.ceil(Math.random() * 4));
 console.log("initial value is " + compSequence);
-
+function preload() {
+  soundFormats('mp3', 'ogg');
+  mySound = loadSound('assets/doorbell');
+}
 playerSequence = [];
 
 y = "yellow";
@@ -66,19 +69,22 @@ function mousePressed() {
   }
   for (i = 0; i < compSequence.length; i++) {
     if (input == "b") {
+      console.log(i)
       if (
         compSequence[i] != playerSequence[playerSequence.length - 1 - i] &&
         playerSequence.length == compSequence.length
       ) {
         console.log("incorrect sequence");
-      } 
-      } else if (input == "f") {
-        if (
-          compSequence[i] != playerSequence[i] &&
-          playerSequence.length == compSequence.length
-        ) {
-          console.log("incorrect sequence");
-        }
+      }
+    } else if (input == "f") {
+      console.log(i)
+
+      if (
+        compSequence[i] != playerSequence[i] &&
+        playerSequence.length == compSequence.length
+      ) {
+        console.log("incorrect sequence");
+      }
     }
     if (compSequence.length == playerSequence.length) {
       while (compSequence.length == playerSequence.length) {

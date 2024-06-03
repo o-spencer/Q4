@@ -1,5 +1,6 @@
-let y, b, r, g, input, mySound
+let y, b, r, g, input, userClick;
 function setup() {
+  userClick = true;
   createCanvas(600, 600);
 
   input = prompt("Repeat forwards(f) or backwards(b):");
@@ -19,10 +20,7 @@ function newText() {
 compSequence = []; //global variable
 compSequence.push(Math.ceil(Math.random() * 4));
 console.log("initial value is " + compSequence);
-function preload() {
-  soundFormats('mp3', 'ogg');
-  mySound = loadSound('assets/doorbell');
-}
+
 playerSequence = [];
 
 y = "yellow";
@@ -55,6 +53,7 @@ function draw() {
 }
 
 function mousePressed() {
+  if (!userClick) return;
   if (mouseX > 0 && mouseX < 300 && mouseY < 300 && mouseY > 0) {
     playerSequence.push(1);
   }
@@ -69,59 +68,61 @@ function mousePressed() {
   }
   for (i = 0; i < compSequence.length; i++) {
     if (input == "b") {
-      console.log(i)
+      console.log(i);
       if (
         compSequence[i] != playerSequence[playerSequence.length - 1 - i] &&
         playerSequence.length == compSequence.length
       ) {
         console.log("incorrect sequence");
+        userClick=false;
       }
     } else if (input == "f") {
-      console.log(i)
+      console.log(i);
 
       if (
         compSequence[i] != playerSequence[i] &&
         playerSequence.length == compSequence.length
       ) {
         console.log("incorrect sequence");
+        userClick=false;
       }
     }
-    if (compSequence.length == playerSequence.length) {
-      while (compSequence.length == playerSequence.length) {
-        compSequence.push(Math.ceil(Math.random() * 4));
-        console.log("comp below in forward order");
-        console.log(compSequence);
-        for (let i = 0; i < compSequence.length; i++) {
-          if (compSequence[i] == 1) {
-            /*
-          y = "white"
-          setTimeout(function(){y = "yellow"}, 1500)
-          */
-            display_sequence(compSequence);
-          }
-          if (compSequence[i] == 2) {
-            /*
-          b = "white"
-          setTimeout(function(){b = "blue"}, 1500)
-          */
-            display_sequence(compSequence);
-          }
-          if (compSequence[i] == 3) {
-            /*
-          r = "white"
-          setTimeout(function(){r = "red"}, 1500)
-          */
-            display_sequence(compSequence);
-          }
-          if (compSequence[i] == 4) {
-            /*
-          g = "white"
-          setTimeout(function(){g = "green"}, 1500)
-          */
-            display_sequence(compSequence);
-          }
+  if (compSequence.length == playerSequence.length) {
+    while (compSequence.length == playerSequence.length) {
+      compSequence.push(Math.ceil(Math.random() * 4));
+      console.log("comp below in forward order");
+      console.log(compSequence);
+      for (let j = 0; j < compSequence.length; j++) {
+        if (compSequence[j] == 1) {
+          /*
+        y = "white"
+        setTimeout(function(){y = "yellow"}, 1500)
+        */
+          display_sequence(compSequence);
+        }
+        if (compSequence[j] == 2) {
+          /*
+        b = "white"
+        setTimeout(function(){b = "blue"}, 1500)
+        */
+          display_sequence(compSequence);
+        }
+        if (compSequence[j] == 3) {
+          /*
+        r = "white"
+        setTimeout(function(){r = "red"}, 1500)
+        */
+          display_sequence(compSequence);
+        }
+        if (compSequence[j] == 4) {
+          /*
+        g = "white"
+        setTimeout(function(){g = "green"}, 1500)
+        */
+          display_sequence(compSequence);
         }
       }
+    }
       playerSequence = [];
     }
   }
